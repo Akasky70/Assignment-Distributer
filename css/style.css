@@ -1,0 +1,166 @@
+body{
+	
+	margin: auto;
+	background: linear-gradient(to right, #0059b3 , darkred);
+}
+.head{
+	width:50%;
+	margin: auto;
+	
+}
+
+.head h1{
+	font-size: 80px;
+	font-family: Impact;
+	color:white;
+}
+
+.head p{
+	font-size: 17px;
+	font-family: century gothic;
+	color:lightgray;
+	font-weight: ;
+	margin-top: 5px;
+}
+
+.title_design{
+	color:#cc0000;
+}
+
+.forms{
+	margin:auto;
+	margin-top: 20px;
+	width:50%;
+	background: transparent;
+	padding: 20px;
+	padding-bottom: 60px;
+	background-color: rgb(102, 163, 255);
+
+}
+
+#data{
+	margin-top: 100px;
+	color:yellow;
+	font-weight: bold;
+	font-size: 17px;
+
+}
+
+/** 
+ * Example styling for tokenizer plugin.
+ * Prefix may be overriden with 'namespace' option.
+ * Don McCurdy, 2013.
+ */
+
+
+.form_input{
+	border-radius: 0px !important;
+    border:2px solid #0059b3 !important;
+    width:100% !important;
+}
+
+.tknz-wrapper-label { /* Label for the field */
+    float: left;
+    color: #000;
+    margin: 5px 5px 0 2px;
+}
+
+.tknz-input { /* The actual input */
+    font-family: century gothic;
+    font-size: 17px;
+    font-weight: inherit;
+    width: 100%;
+    margin: 2px;
+    padding: 8px;
+    color:black;
+}
+
+
+.tknz-token { /* An individual token */
+    background: #5c7db7;
+    padding: 2px 2px 2px 5px; 
+    margin: 2px; 
+    float: left;
+    border-radius: 2px;
+    max-width: 340px;
+    cursor: pointer;
+}
+
+.tknz-token-label { /* Token's label */
+    word-break: break-word;
+}
+
+.tknz-token-x { /* Delete button for token */
+    color: rgba(255,255,255, 0.5);
+    padding-left: 7px;
+    position: relative;
+    top: 1px;
+}
+.tknz-token-x:hover {
+    text-shadow: 0px 0px 3px #eee;
+    color: #fff;
+}
+
+
+/*-bottom design-*/
+.myButton {
+	float:right;
+	margin-top:0px;
+	-moz-box-shadow:inset 0px 0px 0px 0px #e6e6e6;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #e6e6e6;
+	box-shadow:inset 0px 0px 0px 0px #e6e6e6;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e6e6e6), color-stop(1, #e6e6e6));
+	background:-moz-linear-gradient(top, #e6e6e6 5%, #e6e6e6 100%);
+	background:-webkit-linear-gradient(top, #e6e6e6 5%, #e6e6e6 100%);
+	background:-o-linear-gradient(top, #e6e6e6 5%, #e6e6e6 100%);
+	background:-ms-linear-gradient(top, #e6e6e6 5%, #e6e6e6 100%);
+	background:linear-gradient(to bottom, #e6e6e6 5%, #e6e6e6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e6e6', endColorstr='#e6e6e6',GradientType=0);
+	background-color:#e6e6e6;
+	border:2px solid #0048b3;
+	display:inline-block;
+	cursor:pointer;
+	color:#0048b3;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	width:49%;
+	padding:10px 24px;
+	text-decoration:none;
+	text-shadow:0px 0px 26px #e6e6e6;
+}
+@media screen and (max-width:400px) {
+	.myButton {
+		float:left;
+		margin-top:5px;
+	}
+}
+
+#myButton_left{
+	float:left; 
+}
+	
+	
+.myButton:hover {
+	background:#0047b3;
+	color:white;
+	text-decoration:none;
+	transition: 0.5s;
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
+	text-decoration:none;
+}
+
+#message{
+	color: yellow;
+	font-size: 16px;
+	font-weight: bold;
+	height: 40px;
+	padding: 5px;
+	padding-top: 9px;
+	text-align: center;
+
+}

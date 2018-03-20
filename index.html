@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Assignment Distributer</title>
+		
+		
+		
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		
+	</head>
+	<body onload="welcomeBox()">
+
+
+	  	<div class="head">
+	  		<h1><span style="font-size: 65px;"><span class="title_design">Assign</span>ment</span><br/> <span class="title_design">Dist</span>ributer</h1>
+
+	  	</div>
+
+	  	<form method="POST">
+	  		
+
+	  		<div class="forms">
+
+		  		<p id="message"></p>
+		  		<input type="text" name="students" id="students" class="form_input" onclick="resetMessage()" autocomplete="off">
+		  		<input type="text" name="topics" id="topics" class="form_input" onclick="resetMessage()" autocomplete="off">
+		  		<button type="button" class="myButton" onclick="saveData()" id="myButton_left" >Assign Assignments</button>
+		  		<button type="button" class="myButton" onclick="resetData()" >Reset</button>
+		  		<!--<button type="button" class="myButton" onclick="getData()" >Get</button>-->
+
+		  		<div id="data"></div>
+		  	</div>
+	  		
+	  	</form>
+
+	  	<div class="head">
+	  		<p>BIT VII | Kantipur City College | AKAS</p>
+	  	</div>
+
+		<!--<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" >Open Large Modal</button>-->
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/tokenizer.min.js"></script>
+		
+		
+		
+		<script type="text/javascript">
+			
+			
+			$('#students').tokenizer();
+			$('#topics').tokenizer();
+
+			$('#students').tokenizer({
+			  	
+			  	label: '<p style="color: darkred;font-size: 18px;font-weight: bold;">Students : </p>',
+			  	placeholder: 'Please add students here.',
+			  	separators: [',', ' ', '.'],
+			  	allowUnknownTags: true,
+			  	numToSuggest: 5,
+			  	allowDuplicates: false
+			});
+
+			$('#topics').tokenizer({
+			  	
+			  	label: '<p style="color: darkred;font-size: 18px;font-weight: bold;">Topics : </p>',
+			  	placeholder: 'Please add students here.',
+			  	separators: [',', ' ', '.'],
+			  	allowUnknownTags: true,
+			  	numToSuggest: 5,
+			  	allowDuplicates: false
+			});
+
+
+			function saveData(){
+
+				var students = $('#students').tokenizer('get');
+				var topics = $('#topics').tokenizer('get');
+			
+				students = randomValue(students);
+				topics	 = randomValue(topics);
+
+				// console.log(students.length);
+				// console.log(topics.length);
+
+				// clearing data field before appending new data
+				jQuery('#data').empty();
+
+				if(students.length && topics.length){
+
+					if(students.length > topics.length){
+
+						for(i = 0; i<students.length; i++){
+
+							if(topics[i]){
+
+								$('#data').append('<p id='+ i +'> Congratulations ' + students[i] + ' you have got assignments on ' + topics[i] + '.</p>');
+								$('#'+i).css("color", "#cccccc");	
+							}else{
+
+								$('#data').append('<p id='+ i +'> Sorry ' + students[i] + ', no more topic is left for you.</p>');
+								$('#'+i).css("color", "darkred");
+							}
+							
+						}
+					}else{
+
+						for(i = 0; i<topics.length; i++){
+
+							if(students[i]){
+
+								$('#data').append('<p id='+ i +'> Congratulations ' + students[i] + ' you have got assignments on ' + topics[i] + '.</p>');
+								$('#'+i).css("color", "#cccccc");	
+							}else{
+
+								$('#data').append('<p id='+ i +'>' + topics[i] + ' is left out.</p>');
+								$('#'+i).css("color", "darkred");
+							}
+							
+						}
+					}
+					
+				}else{
+
+					if(!topics.length && students.length){
+
+						document.getElementById('message').innerHTML = 'Please insert topics.';
+						$("#message").css("background-color", "rgba(255, 77, 77, 0.7)");
+						return false;
+					}else if(!students.length && topics.length){
+
+						document.getElementById('message').innerHTML = 'Please insert student names.';
+						$("#message").css("background-color", "rgba(255, 77, 77, 0.7)");	
+						return false;					
+					}else{
+
+						document.getElementById('message').innerHTML = 'Please insert students and topics.';
+						$("#message").css("background-color", "rgba(255, 77, 77, 0.7)");
+						return false;
+					}
+				} 
+			}
+
+			function resetMessage(){
+
+				document.getElementById('message').innerHTML = '';
+				$("#message").css("background-color", "");
+			}
+
+			function resetData(){
+
+				$('#students').tokenizer('empty');
+				$('#topics').tokenizer('empty');
+				//document.getElementById('#data').innerHTML('');
+				jQuery('#data').empty();
+				document.getElementById('message').innerHTML = '';
+				$("#message").css("background-color", "");
+				return true;
+			}
+
+			function randomValue(array){
+				var currentIndex = array.length, temporaryValue, randomIndex;
+
+				// While there remain elements to shuffle...
+				while (0 !== currentIndex) {
+
+				    // Pick a remaining element...
+				    randomIndex = Math.floor(Math.random() * currentIndex);
+				    currentIndex -= 1;
+
+				    // And swap it with the current element.
+				    temporaryValue = array[currentIndex];
+				    array[currentIndex] = array[randomIndex];
+				    array[randomIndex] = temporaryValue;
+				}
+
+				return array;
+
+				console.log( array);
+
+			}
+
+		
+		</script>
+
+	</body>
+</html>
